@@ -1,16 +1,15 @@
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import Loading from "../../src/components/loading"
 
-export default function Restrict(props){
+export default function Restrict({handleSetUserData, children}){
     const [isLoading, setLoading] = useState(true)
     const [userData, setData] = useState({})
 
     const rotas = useRouter()
-    
-    useEffect(()=>{
 
+    useEffect(()=>{
         const user = {
             username: Cookies.get("username"),
             senha: Cookies.get("senha")
@@ -23,7 +22,7 @@ export default function Restrict(props){
             .then(res=>res.json())
             .then(dados=>{
                 setData(dados)
-                props.handleSetUserData(dados)
+                handleSetUserData(dados)
                 setLoading(false)
             })
             .catch((err)=>{
@@ -37,10 +36,10 @@ export default function Restrict(props){
                 rotas.push("/login")
             })
         
-    }, [])
+    }, [handleSetUserData, rotas])
 
     if(isLoading) return <Loading></Loading>
 
-    return props.children
+    return children
 
 }

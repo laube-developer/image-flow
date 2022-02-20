@@ -15,7 +15,7 @@ export default function Login(){
         e.preventDefault()
 
         const options = {
-            expires: 10/(24*60*60)
+            expires: 10/(24*60)
         }
 
         Cookies.set("username", username, options)
