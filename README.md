@@ -21,9 +21,6 @@ O projeto ainda está ``em fase de desenvolvimento``.
 Fique por dentro das fases do desenvovimento clicando [aqui](/about/DEV.md).
 
 Se quiser, pode dar uma olhadinha no meu [repositório do github](https://github.com/laube-developer/image-flow), ou acessar o meu [canal no YouTube](https://www.youtube.com/channel/UCcAl972zOv_A19vJL2YhyMg) e ficar por dentro do que está acontecendo!
-<<<<<<< HEAD
-=======
 
----
 ![Banner do Image-Flow](https://raw.githubusercontent.com/laube-developer/image-flow/main/example_images/2_Banner.jpg)
->>>>>>> 50bc84b6d7034522237cef8dae42aef27de06d23
+
