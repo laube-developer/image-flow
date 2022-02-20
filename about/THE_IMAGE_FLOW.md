@@ -32,7 +32,6 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 
 2. Manter registro de imagens dos usuários
 
-|------------------------|-----------------|
 | Id                     | int             |
 | Blob_imagem            | blob            |
 | Nome                   | string          |
@@ -40,7 +39,6 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 | Data e hora de upload  | Date            |
 | Tamanho da Imagem      | int `em BYTES`  | 
 | Caminho Relativo       |     String      |
-|------------------------|-----------------|
 
 3. Manter registro de vídeos dos usuários
 | Vídeo |
@@ -66,3 +64,6 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 - Recentes
 - Coleções
 - Compartilhados Comigo (Implementação futura)
+
+## Modelo Conceitual dos Usuários
+[Modelo Conceitual do banco de Dados](/public_docs/imgs/1.1_ABOUT.png)
