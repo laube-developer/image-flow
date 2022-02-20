@@ -20,6 +20,7 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 1. Manter cadastro de usuários:
 
 | Usuario |
+|---------|
 | Id | int |
 | Nome | String |
 | Username | String |
@@ -32,6 +33,7 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 2. Manter registro de imagens dos usuários
 
 | Imagem |
+|---------|
 | Id | int |
 | Blob_imagem | blob |
 | Nome | string |
@@ -41,6 +43,8 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 | Caminho Relativo | String |
 
 3. Manter registro de vídeos dos usuários
+| Vídeo |
+|-------|
 | Id | int |
 | Blob_video | blob |
 | Nome | string |
