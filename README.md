@@ -13,6 +13,8 @@ Ele amazena imagens e vídeos nos seguintes formatos:
   - `MP4`
   - `.WMV`
 
+[Veja mais detalhes...](/about/THE_IMAGE_FLOW.md)
+
 ## 🗺 [RoadMap do desenvolvimento](/about/DEV.md)
 
 ## ▶️ Quero iniciar
