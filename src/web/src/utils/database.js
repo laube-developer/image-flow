@@ -1,6 +1,13 @@
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient(process.env.DB_URL.toString(), {
+
+const db_url =
+    "mongodb+srv://"+
+    process.env.DB_USERNAME +
+    ":"+
+    process.env.DB_SENHA +"@cluster0.hns3u.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+const client = new MongoClient(db_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
