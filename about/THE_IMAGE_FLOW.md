@@ -32,16 +32,23 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 
 2. Manter registro de imagens dos usuários
 
+|------------------------------------------|
 | Imagem                                   |
 |------------------------|-----------------|
 | Id                     | int             |
-| Blob_imagem            | blob            |
-| Nome                   | string          |
-| Tags                   | array[ String ] |
-| Data e hora de upload  | Date            |
-| Tamanho da Imagem      | int `em BYTES`  | 
-| Caminho Relativo       |     String      |
 |------------------------|-----------------|
+| Blob_imagem            | blob            |
+|------------------------|-----------------|
+| Nome                   | string          |
+|------------------------|-----------------|
+| Tags                   | array[ String ] |
+|------------------------|-----------------|
+| Data e hora de upload  | Date            |
+|------------------------|-----------------|
+| Tamanho da Imagem      | int `em BYTES`  |
+|------------------------|-----------------| 
+| Caminho Relativo       |     String      |
+|------------------------------------------|
 
 3. Manter registro de vídeos dos usuários
 | Vídeo |
