@@ -45,9 +45,5 @@ export default function Login(){
                 className={styles.button}
             >Enviar</button>
         </form>
-        <div>
-            <p>{username}</p>
-            <p>{senha}</p>
-        </div>
     </div>)
 }
