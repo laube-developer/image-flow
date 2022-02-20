@@ -17,10 +17,10 @@ O projeto deve ser capaz de armazenar imagens e vídeos dos usuários. Contempla
 
 ## Objetivos Específicos
 O projeto deverá ser capaz de realizar as seguintes operações:
-1. Manter cadastro de usuários:
+### 1. Manter cadastro de usuários:
 
-| Usuario |
-|---------|
+| Dado | Tipo |
+|-----|----|
 | Id | int |
 | Nome | String |
 | Username | String |
@@ -30,8 +30,10 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 | Data de Nascimento | Date |
 
 
-2. Manter registro de imagens dos usuários
+### 2. Manter registro de imagens dos usuários
 
+| Dado | Tipo |
+|-----|----|
 | Id                     | int             |
 | Blob_imagem            | blob            |
 | Nome                   | string          |
@@ -40,9 +42,10 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 | Tamanho da Imagem      | int `em BYTES`  | 
 | Caminho Relativo       |     String      |
 
-3. Manter registro de vídeos dos usuários
-| Vídeo |
-|-------|
+### 3. Manter registro de vídeos dos usuários
+
+| Dado | Tipo |
+|-----|----|
 | Id | int |
 | Blob_video | blob |
 | Nome | string |
@@ -51,7 +54,7 @@ O projeto deverá ser capaz de realizar as seguintes operações:
 | Tamanho da Imagem | int `em BYTES`| 
 | Caminho Relativo | String |
 
-4. Realizar `Download` e `Upload` de documentos nos seguintes formatos
+### 4. Realizar `Download` e `Upload` de documentos nos seguintes formatos
 - Imagem:
     - `PNG`
     - `JPEG`, `JPG`
@@ -60,10 +63,14 @@ O projeto deverá ser capaz de realizar as seguintes operações:
     - `MP4`
 	- `WMV`
 
-5. Organização em pastas
+### 5. Organização em pastas
 - Recentes
 - Coleções
 - Compartilhados Comigo (Implementação futura)
-
+---
 ## Modelo Conceitual dos Usuários
-[Modelo Conceitual do banco de Dados](/public_docs/imgs/1.1_ABOUT.png)
+![Modelo Conceitual do banco de Dados](/public_docs/imgs/1.1_ABOUT.png)
+---
+
+![Banner do Image-Flow](https://raw.githubusercontent.com/laube-developer/image-flow/main/example_images/2_Banner.jpg)
+
