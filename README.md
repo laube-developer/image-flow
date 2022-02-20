@@ -14,10 +14,10 @@ Ele amazena imagens e vídeos nos seguintes formatos:
   - `.WMV`
 
 ## 🗺 [RoadMap do desenvolvimento](/about/DEV.md)
-Fique por dentro das fases do denenvovimento clicando [aqui](/about/DEV.md)
-
-Se quiser, pode dar uma olhadinha no meu [repositório do github](https://github.com/laube-developer/image-flow), ou acessar o meu [canal no YouTube](https://www.youtube.com/channel/UCcAl972zOv_A19vJL2YhyMg) e ficar por dentro do que está acontecendo!
 
 ## ▶️ Quero iniciar
 O projeto ainda está ``em fase de desenvolvimento``.
 
+Fique por dentro das fases do denenvovimento clicando [aqui](/about/DEV.md)
+
+Se quiser, pode dar uma olhadinha no meu [repositório do github](https://github.com/laube-developer/image-flow), ou acessar o meu [canal no YouTube](https://www.youtube.com/channel/UCcAl972zOv_A19vJL2YhyMg) e ficar por dentro do que está acontecendo!
