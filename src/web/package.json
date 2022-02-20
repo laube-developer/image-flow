@@ -1,0 +1,34 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laube-developer/image-flow.git"
+  },
+  "author": "Rafael Laube",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laube-developer/image-flow/issues"
+  },
+  "homepage": "https://github.com/laube-developer/image-flow#readme",
+  "dependencies": {
+    "js-cookie": "^3.0.1",
+    "mongodb": "^4.4.0",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-lottie": "^1.2.3",
+    "rgt": "^1.0.7"
+  },
+  "devDependencies": {
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0"
+  }
+}
