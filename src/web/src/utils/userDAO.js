@@ -7,7 +7,7 @@ import connect from "./database";
 
 async function login(username, senha){
     console.log("Realizando login...")
-    const {db} = await connect()
+    const {db, client} = await connect()
 
     const user = {
         username: username,
@@ -22,8 +22,10 @@ async function login(username, senha){
         }
     }
 
-    const response = collection.findOne(user, opcoes)
+    const response = await collection.findOne(user, opcoes)
 
+    client.close()
+    
     return response
 }
 
