@@ -6,6 +6,6 @@ export default function Post(){
 
     return <Restrict handleSetUserData={setUserData}>
         <h1>Adicione novos posts</h1>
-        <textarea></textarea>
+
     </Restrict>
 }

@@ -16,43 +16,44 @@ const styles = {
     }
 }
 
-
-
-import Lottie from "react-lottie"
+import lottie from "lottie-web";
 import animationData from "../lootie/loading_animation.json"
-import Gradient from "rgt"
+// import Gradient from "rgt"
+import { useEffect, useRef } from 'react';
 
-const optLottie = {
-    loop: true,
-		autoplay: true,
-		animationData: animationData,
-		renderSettings: {
-			preserveAspectRatio: "xMidYMid slice"
-		}
-}
-
-const gradientProps = {
-    dir: "left-to-right",
-    fron: "#A019D8",
-    to: "#D11AD6"
-}
+// const gradientProps = {
+//     dir: "left-to-right",
+//     fron: "#A019D8",
+//     to: "#D11AD6"
+// }
 
 export default function Loading(){
+    const container = useRef(null)
+
+    useEffect(()=>{
+        lottie.loadAnimation({
+            container: container,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            animationData: animationData,
+        })
+    }, [])
+
     return (<div style={styles.body}>
-        <Lottie
-            options={optLottie}
-            width={78}
-            height={78}
-        ></Lottie>
+        <div
+            className="container"
+            useRef={container}
+        ></div>
         <p
             style={styles.text}
         >
 
-        <Gradient
+        {/* <Gradient
             dir="left-to-right"
             from="#A019D8"
             to="#D11AD6"
-            >Carregando...</Gradient>
+            >Carregando...</Gradient> */}
         </p>
     </div>)
 }

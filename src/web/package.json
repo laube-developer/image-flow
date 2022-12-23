@@ -20,11 +20,11 @@
   "homepage": "https://github.com/laube-developer/image-flow#readme",
   "dependencies": {
     "js-cookie": "^3.0.1",
+    "lottie-web": "^5.9.6",
     "mongodb": "^4.4.0",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-lottie": "^1.2.3",
     "rgt": "^1.0.7"
   },
   "devDependencies": {
