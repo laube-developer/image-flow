@@ -5,41 +5,76 @@ import Loading from "../../src/components/loading"
 
 export default function Restrict({handleSetUserData, children}){
     const [isLoading, setLoading] = useState(true)
-    const [userData, setData] = useState({})
+    const [haveUserData, setHaveUserData] = useState(false)
 
     const rotas = useRouter()
 
-    useEffect(()=>{
-        const user = {
-            username: Cookies.get("username"),
-            senha: Cookies.get("senha")
+    useEffect(async ()=>{
+        setLoading(true)
+        const authUser = await buscarUsuarioLogado()
+
+        if(authUser){
+            handleSetUserData(authUser)
+            setHaveUserData(true)
+        }else{
+            salvarUsuarioNosCookies()
+        }
+        setLoading(false)
+
+        async function buscarUsuarioLogado(){
+            let authUserString = Cookies.get("authUser")
+            let authUser
+
+            if(Cookies.get("authUser") != undefined){
+                authUser = JSON.parse(authUserString)
+
+                return authUser
+            } else {
+                return false
+            }
+            
         }
 
-        fetch("/api/login", {
-            method: "POST",
-            body: JSON.stringify(user)
-        })
-            .then(res=>res.json())
-            .then(dados=>{
-                setData(dados)
-                handleSetUserData(dados)
+        function salvarUsuarioNosCookies(){
+
+            const user = {
+                username: Cookies.get("username"),
+                senha: Cookies.get("senha")
+            }
+    
+            if(user.username === undefined || user.senha === undefined){
+                alert("Realize o login.")
                 setLoading(false)
-            })
-            .catch((err)=>{
-                console.log(err)
-                if(Cookies.get("username")== undefined){
-                    alert("Realize o login.")
-                    rotas.push("/login")
-                    return
-                }
-                alert("Usuário ou senha incorretos")
                 rotas.push("/login")
+                return
+            }
+
+            fetch("/api/login", {
+                method: "POST",
+                body: JSON.stringify(user)
             })
-        
+                .then(res=>res.json())
+                .then(dados=>{
+                    setData(dados)
+                    handleSetUserData(dados)
+                    setLoading(false)
+                    Cookies.set("authUser", JSON.stringify(dados))
+                })
+                .catch((err)=>{
+                    console.log(err)
+                    alert("Usuário ou senha incorretos")
+                    rotas.push("/login")
+                })
+            
+
+            
+        }
+
     }, [handleSetUserData, rotas])
 
-    if(isLoading) return <Loading></Loading>
-
-    return children
+    
+    if(!isLoading && haveUserData ) return children
+    
+    return <Loading />
 
 }

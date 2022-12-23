@@ -19,7 +19,7 @@ const styles = {
 import lottie from "lottie-web";
 import animationData from "../lootie/loading_animation.json"
 // import Gradient from "rgt"
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 // const gradientProps = {
 //     dir: "left-to-right",
@@ -28,22 +28,11 @@ import { useEffect, useRef } from 'react';
 // }
 
 export default function Loading(){
-    const container = useRef(null)
 
-    useEffect(()=>{
-        lottie.loadAnimation({
-            container: container,
-            renderer: "svg",
-            loop: true,
-            autoplay: true,
-            animationData: animationData,
-        })
-    }, [])
 
     return (<div style={styles.body}>
         <div
             className="container"
-            useRef={container}
         ></div>
         <p
             style={styles.text}

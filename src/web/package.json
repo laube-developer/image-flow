@@ -19,10 +19,14 @@
   },
   "homepage": "https://github.com/laube-developer/image-flow#readme",
   "dependencies": {
+    "axios": "^1.2.1",
     "js-cookie": "^3.0.1",
     "lottie-web": "^5.9.6",
     "mongodb": "^4.4.0",
+    "multer": "^1.4.5-lts.1",
+    "multiparty": "^4.2.3",
     "next": "12.1.0",
+    "next-connect": "^0.13.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "rgt": "^1.0.7"
