@@ -18,7 +18,7 @@ async function login(username, senha){
 
     const opcoes = {
         projection: {
-            senha: false
+            senha: 0
         }
     }
 

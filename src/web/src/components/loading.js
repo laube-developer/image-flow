@@ -12,37 +12,50 @@ const styles = {
         fontWeight: "800",
         backgroundClip: "text",
         textFillColor: "transparent"
-
+    },
+    container: {
+        width: 150,
+        height: 150
     }
 }
 
 import lottie from "lottie-web";
-import animationData from "../lootie/loading_animation.json"
-// import Gradient from "rgt"
-import { useEffect } from 'react';
+import Gradient from "rgt"
+import { useEffect, useRef } from 'react';
 
-// const gradientProps = {
-//     dir: "left-to-right",
-//     fron: "#A019D8",
-//     to: "#D11AD6"
-// }
+const gradientProps = {
+    dir: "left-to-right",
+    fron: "#A019D8",
+    to: "#D11AD6"
+}
 
 export default function Loading(){
-
+    const container = useRef(null)
+    
+    useEffect(()=>{
+        lottie.loadAnimation({
+            container: container.current, 
+            render: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: require('../lootie/loading_animation.json')
+        })
+    }, [])
 
     return (<div style={styles.body}>
         <div
-            className="container"
+            style={styles.container}
+            ref={container}
         ></div>
         <p
             style={styles.text}
         >
 
-        {/* <Gradient
+        <Gradient
             dir="left-to-right"
             from="#A019D8"
             to="#D11AD6"
-            >Carregando...</Gradient> */}
+            >Carregando...</Gradient>
         </p>
     </div>)
 }

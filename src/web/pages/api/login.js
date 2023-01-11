@@ -15,6 +15,6 @@ export default async function handler(req, res){
     }
 
     const response = await login(user.username, user.senha)
- 
+
     res.status(200).json(response)
 }

@@ -1,45 +1,28 @@
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
-import { useEffect, useState, useMemo } from "react"
+import { useEffect, useState, useMemo, useContext } from "react"
 import Loading from "../../src/components/loading"
+import AuthUserContext from './../utils/context/userContext';
 
-export default function Restrict({handleSetUserData, children}){
+export default function Restrict({children}){
     const [isLoading, setLoading] = useState(true)
-    const [haveUserData, setHaveUserData] = useState(false)
+    const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
 
     const rotas = useRouter()
 
     useEffect(async ()=>{
         setLoading(true)
-        const authUser = await buscarUsuarioLogado()
 
-        if(authUser){
-            handleSetUserData(authUser)
-            setHaveUserData(true)
-        }else{
-            salvarUsuarioNosCookies()
+        if(!authUser){
+            instanciarUsuario()
         }
         setLoading(false)
 
-        async function buscarUsuarioLogado(){
-            let authUserString = Cookies.get("authUser")
-            let authUser
-
-            if(Cookies.get("authUser") != undefined){
-                authUser = JSON.parse(authUserString)
-
-                return authUser
-            } else {
-                return false
-            }
-            
-        }
-
-        function salvarUsuarioNosCookies(){
+        async function instanciarUsuario(){
 
             const user = {
-                username: Cookies.get("username"),
-                senha: Cookies.get("senha")
+                username: username,
+                senha: senha
             }
     
             if(user.username === undefined || user.senha === undefined){
@@ -47,33 +30,31 @@ export default function Restrict({handleSetUserData, children}){
                 setLoading(false)
                 rotas.push("/login")
                 return
-            }
+            } 
 
-            fetch("/api/login", {
+            const formData = new FormData()
+            formData.append("json", JSON.stringify(user))
+
+            await fetch("/api/login", {
                 method: "POST",
                 body: JSON.stringify(user)
             })
                 .then(res=>res.json())
                 .then(dados=>{
-                    setData(dados)
-                    handleSetUserData(dados)
+                    console.log(dados)
+                    setAuth(dados)
                     setLoading(false)
-                    Cookies.set("authUser", JSON.stringify(dados))
                 })
                 .catch((err)=>{
                     console.log(err)
                     alert("Usuário ou senha incorretos")
                     rotas.push("/login")
                 })
-            
-
-            
         }
-
-    }, [handleSetUserData, rotas])
+    }, [rotas])
 
     
-    if(!isLoading && haveUserData ) return children
+    if(!isLoading && authUser ) return children
     
     return <Loading />
 

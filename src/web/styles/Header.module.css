@@ -1,0 +1,80 @@
+@keyframes menuHover{
+    from {width: 0; left: 50%;}
+    to {width: 100%; left: 0;}
+}
+
+@keyframes reverseMenuHover{
+    from {width: 100%; left: 0;}
+    to {width: 0; left: 50%;}
+}
+
+@font-face{
+    font-family: Buenard;
+    src: url('./fonts/Buenard/Buenard-Regular.ttf');
+}
+
+@font-face{
+    font-family: Roboto;
+    src: url('./fonts/Roboto/Roboto-Regular.ttf');
+}
+
+.header{
+    background: #313131;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10rem;
+    margin-bottom: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+}
+
+.header ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    color: white;
+    font-family: Roboto;
+}
+
+.header li{
+    padding: 0 1.5rem;
+    cursor: pointer;
+}
+
+.header ul li:after{
+    content: "";
+    left: 0;
+    display: flex;
+    position: relative;
+    width: 0;
+    height: .3rem;
+    background-color: #4B218E;
+    top: 6px;
+    animation-name: reverseMenuHover;
+    animation-duration: .3s;
+}
+
+.header ul li.current:after{
+    width: 100%;
+}
+
+.header ul li:hover:after{
+    width: 100%;
+    animation-name: menuHover;
+    animation-duration: .3s;
+}
+
+.header::after{
+    content: "";
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: .4rem;
+    top: 7rem;
+    left: 0;
+    background-image: linear-gradient(to right, #4B218E, #A118D7);
+}

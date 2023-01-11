@@ -1,13 +1,18 @@
 import Link from "next/link"
-import { useState } from "react"
+import { useContext, useEffect } from "react"
 import Restrict from "../../src/components/restrict"
+import AuthUserContext from "../../src/utils/context/userContext"
 
 export default function Me(){
-    const [userData, setUserData] = useState({})
+    const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
 
-    return <Restrict handleSetUserData={setUserData}>
+    useEffect(()=>{
+        console.log(authUser)
+    }, [])
+
+    return <Restrict>
         <h1>Meu Usuário</h1>
-        <p>Id: {userData._id}</p>
+        <p>Id: {authUser ? authUser._id : ""}</p>
 
         <Link href="/user/post"><a>Adicionar posts</a></Link>
     </Restrict>

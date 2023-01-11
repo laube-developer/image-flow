@@ -43,7 +43,7 @@ export default function Post(){
     }
 
 
-    return <Restrict handleSetUserData={setUserData}>
+    return <Restrict>
         <form ref={formRef}>
             <p>Envie um arquivo</p>
             <input multiple={true} ref={fileRef} type="file" name="theFiles" onChange={onChange}/>

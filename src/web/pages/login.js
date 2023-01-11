@@ -1,26 +1,16 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import styles from "../styles/Login.module.css"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
+import AuthUserContext from './../src/utils/context/userContext';
 
 export default function Login(){
-    const [username, setUsername] = useState("")
-    const [senha, setSenha] = useState("")
+    const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
 
     const rotas = useRouter()
 
     function handleSubmit(e){
-        Cookies.remove("username")
-        Cookies.remove("senha")
         e.preventDefault()
-
-        const options = {
-            expires: 10/(24*60)
-        }
-
-        Cookies.set("username", username, options)
-        Cookies.set("senha", senha, options)
-
         rotas.push("/user/me")
     }
 
