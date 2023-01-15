@@ -1,6 +1,6 @@
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
-import { useContext } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 
 import LogoutButton from "./logoutButton"
 import Link from "next/link"
@@ -14,7 +14,34 @@ export default function Header(){
 
     const rotas = useRouter()
 
-    
+    const header = useRef(null)
+
+    const [headerType, setType] = useState("header_7")
+
+    useEffect(()=>{
+        window.onscroll = (event)=>{
+            let headerHeight = header.current.getBoundingClientRect().height
+            let scrollY = window.scrollY
+            
+            if(scrollY > headerHeight){
+                setType("header_5")
+            } else {
+                setType("header_7")
+            }
+        }
+    }, [])
+
+    function HeaderComponent({child}){
+        return <header className={styles[headerType]} ref={header}>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li className={styles.current}>Sobre</li>
+                <li><a href="/cadastrar">Cadastrar</a></li>
+                <li><a href="/login">Entrar</a></li>
+            </ul>
+        </header>
+    }
+
     if(whiteList[rotas.pathname]) return <></>
 
     if(authUser){
@@ -29,13 +56,3 @@ export default function Header(){
 
 }
 
-function HeaderComponent({child}){
-    return <header className={styles.header}>
-        <ul>
-            <li>Início</li>
-            <li className={styles.current}>Sobre</li>
-            <li>Cadastrar</li>
-            <li>Entrar</li>
-        </ul>
-    </header>
-}
