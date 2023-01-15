@@ -81,7 +81,7 @@ export default function Home(){
         window.onresize = resize
 
         filtrarCommits()
-    }, [screenWidth, commits])
+    }, [])
 
     useEffect(()=>{
         resize()
