@@ -33,7 +33,7 @@ export default function Header(){
         </HeaderComponent>
     } else {
         return <HeaderComponent>
-            <Link href="/login"><u>Login</u></Link>
+            <Link href="/login" passHref><u>Login</u></Link>
         </HeaderComponent>
     }
 
