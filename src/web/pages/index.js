@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import styles from "../styles/Home.module.css"
 
-import Image from "next/image";
 import TitleUnderlineLight from "../src/components/Home/TitleUnderlineLight"
 import Card from "../src/components/Home/Card"
 import Button from "../src/components/Home/Button"
@@ -18,13 +17,13 @@ export default function Home({commitsList, test}){
                 <Card src="/home/image-card-1.svg" key={1}>
                     Salve seus arquivos de imagem e vídeo
                 </Card>
-                <Card src="/home/image-card-2.svg" key={1}>
+                <Card src="/home/image-card-2.svg" key={2}>
                     Crie coleções para cada momento
                 </Card>
-                <Card src="/home/image-card-3.svg" key={1}>
+                <Card src="/home/image-card-3.svg" key={3}>
                     Acesse a qualquer momento
                 </Card>
-                <Card src="/home/image-card-4.svg" key={1}>
+                <Card src="/home/image-card-4.svg" key={4}>
                     Compartilhe seus arquivos
                 </Card>
                 
@@ -39,9 +38,9 @@ export default function Home({commitsList, test}){
         </section>
         <session className={styles.session_2}>
             <div>
-                <Image src="/home/flow.svg" className={styles.flow} alt="."/>
+                <img src="./home/flow.svg" className={styles.flow}/>
             </div>
-            <div src="/home/image_session_2.svg" className={styles.image_s2}>
+            <div className={styles.image_s2}>
                 <div className={styles.session_2_content}>
                     <div className={styles.session_2_box}>
                         <h2>Portifólio</h2>
@@ -52,7 +51,9 @@ export default function Home({commitsList, test}){
                         </ul>
                         <p>Projeto para composição de portifólio pessoal. O processo de desenvolvimento está registrado no <span><Link href="https://youtube.com/@rafaellaube">Youtube</Link></span>.</p>
                     </div>
-                    <Button type={"btn_terciary"}>Veja mais projetos →</Button>
+                    <Button type={"btn_terciary"} src="https://github.com/laube-developer">
+                        Veja mais projetos →
+                    </Button>
                 </div>
             </div>
         </session>
@@ -72,11 +73,11 @@ export default function Home({commitsList, test}){
         </session>
         <footer className={styles.footer}>
             <div>
-                <Image src="/home/github.svg" alt="Image Flow Github Project"/>
+                <img src="/home/github.svg" alt="Image Flow Github Project" />
                 <Link href="https://github.com/laube-developer/image-flow">Image Flow</Link>
             </div>
             <div>
-                <Image src="/home/linkedin.svg" alt="Rafael Laube no Linkedin"/>
+                <img src="/home/linkedin.svg" alt="Rafael Laube no Linkedin" />
                 <Link href="https://www.linkedin.com/in/rafaellaube/">Rafael Laube</Link>
             </div>
         </footer>

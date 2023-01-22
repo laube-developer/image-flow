@@ -1,8 +1,8 @@
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { useEffect, useState, useMemo, useContext } from "react"
-import Loading from "../../src/components/loading"
-import AuthUserContext from '../../utils/context/userContext';
+import Loading from "./loading"
+import AuthUserContext from "../../../utils/context/userContext";
 
 export default function Restrict({children}){
     const [isLoading, setLoading] = useState(true)
@@ -41,8 +41,10 @@ export default function Restrict({children}){
             })
             .then(res=>res.json())
             .then(data=>{
+                console.log("Sucesso no login.")
                 setAuth(data)
                 setLoading(false)
+                rotas.push("/login")
             })
             .catch((err)=>{
                 console.log(err)

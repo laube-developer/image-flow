@@ -3,6 +3,7 @@ import styles from "../styles/Login.module.css"
 import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import AuthUserContext from './../src/utils/context/userContext';
+import Link from "next/link";
 
 export default function Login(){
     const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
@@ -15,6 +16,7 @@ export default function Login(){
     }
 
     return (<div className={styles.container}>
+        <button onClick={()=>{rotas.push("/")}}>Voltar para o Início</button>
         <h1>Realize seu login</h1>
         <form className={styles.form}>
             <input

@@ -38,7 +38,7 @@ export default function Loading(){
             render: 'svg',
             loop: true,
             autoplay: true,
-            animationData: require('./lootie/loading_animation.json')
+            animationData: require('./animation/loading_animation.json')
         })
     }, [])
 

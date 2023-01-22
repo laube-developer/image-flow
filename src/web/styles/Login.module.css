@@ -30,11 +30,12 @@
 .input:focus{
     background: rgb(236, 236, 236);
 }
-.button{
+.button, .container button{
     height: 2rem;
     padding: 0 2rem;
     font-size: .8rem;
     color: white;
+    text-decoration: none;
     font-weight: 600;
     cursor: pointer;
     border: none;
