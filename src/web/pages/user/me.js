@@ -4,11 +4,7 @@ import Restrict from "../../src/components/restrict"
 import AuthUserContext from "../../src/utils/context/userContext"
 
 export default function Me(){
-    const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
-
-    useEffect(()=>{
-        console.log(authUser)
-    }, [])
+    const [authUser] = useContext(AuthUserContext)
 
     return <Restrict>
         <h1>Meu Usuário</h1>

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import styles from "../styles/Home.module.css"
 
+import Image from "next/image";
 import TitleUnderlineLight from "../src/components/Home/TitleUnderlineLight"
 import Card from "../src/components/Home/Card"
 import Button from "../src/components/Home/Button"
@@ -38,7 +39,7 @@ export default function Home({commitsList, test}){
         </section>
         <session className={styles.session_2}>
             <div>
-                <img src="/home/flow.svg" className={styles.flow}/>
+                <Image src="/home/flow.svg" className={styles.flow} alt="."/>
             </div>
             <div src="/home/image_session_2.svg" className={styles.image_s2}>
                 <div className={styles.session_2_content}>

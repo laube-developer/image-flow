@@ -51,7 +51,7 @@ export default function Restrict({children}){
                     rotas.push("/login")
                 })
         }
-    }, [rotas])
+    }, [rotas, authUser, setAuth, username, senha])
 
     
     if(!isLoading && authUser ) return children

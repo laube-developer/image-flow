@@ -1,4 +1,5 @@
 import styles from "./CommitItem.module.css"
+import Image from "next/image"
 
 export default function CommitItem({title, userImgUrl, author, date}){
     let [ day, month, year] = [0, 0, 0]
@@ -17,7 +18,7 @@ export default function CommitItem({title, userImgUrl, author, date}){
         <h4>{info}</h4>
         
         <div>
-            <img src={userImgUrl}/>
+            <Image src={userImgUrl}/>
             <div className={styles.icon}>←</div>
             <p>por {author}</p>
         </div>

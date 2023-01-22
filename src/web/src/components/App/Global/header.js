@@ -9,7 +9,7 @@ import AuthUserContext from "../../../utils/context/userContext"
 import styles from "./Header.module.css"
 
 export default function Header(){
-    const [authUser, setAuth, username, setUsername, senha, setSenha] = useContext(AuthUserContext)
+    const [authUser] = useContext(AuthUserContext)
     const whiteList = {/*"/": 1,*/ "/login":1}
 
     const rotas = useRouter()
@@ -17,10 +17,10 @@ export default function Header(){
     function HeaderComponent({child}){
         return <header className={styles.header}>
             <ul>
-                <li><a href="/">Início</a></li>
-                <li className={styles.current}><a href="/">Sobre</a></li>
-                <li><a href="/cadastrar">Cadastrar</a></li>
-                <li><a href="/login">Entrar</a></li>
+                <li><Link href="/">Início</Link></li>
+                <li className={styles.current}><Link href="/">Sobre</Link></li>
+                <li><Link href="/cadastrar">Cadastrar</Link></li>
+                <li><Link href="/login">Entrar</Link></li>
             </ul>
         </header>
     }
