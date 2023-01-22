@@ -10,7 +10,7 @@ export default function Restrict({children}){
 
     const rotas = useRouter()
 
-    useEffect(async ()=>{
+    useEffect(()=>{
         setLoading(true)
 
         if(!authUser){
@@ -39,16 +39,16 @@ export default function Restrict({children}){
                 method: "POST",
                 body: JSON.stringify(user)
             })
+            .then(res=>res.json())
+            .then(data=>{
+                setAuth(data)
+                setLoading(false)
+            })
             .catch((err)=>{
                 console.log(err)
                 alert("Usuário ou senha incorretos")
                 rotas.push("/login")
             })
-            
-            const dados = await response.json()
-            setAuth(dados)
-            setLoading(false)
-
                 
         }
     }, [rotas, authUser, setAuth, username, senha])

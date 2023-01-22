@@ -18,7 +18,7 @@ export default function Header(){
         return <header className={styles.header}>
             <ul>
                 <li><Link href="/" passHref>Início</Link></li>
-                <li className={styles.current} passHref><Link href="/">Sobre</Link></li>
+                <li className={styles.current} ><Link href="/" passHref>Sobre</Link></li>
                 <li><Link href="/cadastrar" passHref>Cadastrar</Link></li>
                 <li><Link href="/login" passHref>Entrar</Link></li>
             </ul>
