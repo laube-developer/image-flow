@@ -2,7 +2,7 @@ import Cookies from "js-cookie"
 import { useEffect, useContext } from "react"
 import { useRouter } from "next/router"
 
-import AuthUserContext from "../utils/context/userContext"
+import AuthUserContext from "../../../utils/context/userContext"
 
 const styles = {
     button: {

@@ -2,7 +2,7 @@ import Cookies from "js-cookie"
 import { useRouter } from "next/router"
 import { useEffect, useState, useMemo, useContext } from "react"
 import Loading from "../../src/components/loading"
-import AuthUserContext from './../utils/context/userContext';
+import AuthUserContext from '../../utils/context/userContext';
 
 export default function Restrict({children}){
     const [isLoading, setLoading] = useState(true)

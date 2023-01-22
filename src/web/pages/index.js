@@ -1,113 +1,32 @@
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 
 import styles from "../styles/Home.module.css"
 
-export default function Home(){
-    const [screenWidth, setWidth] =  useState(0);
-    const [commits, setCommits] = useState([])
-    const [filteredCommits, setFilteredCommits] = useState([])
+import TitleUnderlineLight from "../src/components/Home/TitleUnderlineLight"
+import Card from "../src/components/Home/Card"
+import Button from "../src/components/Home/Button"
+import CommitItem from "../src/components/Home/CommitItem"
 
-    const resize = (event)=>{
-        setWidth(window.innerWidth)
-    }
-
-    const loadCommits = async ()=>{
-        let commitsList = []
-
-        //trocar esse link para esse https://api.github.com/repos/laube-developer/image-flow/commits
-        await fetch('/api/commits')
-        .then((response) => response.json())
-        .then((data) => {
-            data.map((item, index)=>{
-
-                commitsList[index] = {
-                    "sha": item.sha,
-                    "date": new Date(item.commit.author.date),
-                    "author": item.author.login,
-                    "url": item.author.avatar_url,
-                    "mensagem": item.commit.message
-                }
-
-            })
-        });
-
-        console.log(commits)
-    }
-
-    const filtrarCommits = ()=>{
-        if(screenWidth <= 800){
-            salvarCommitsFiltrados(4, 1)
-        }
-
-        if(screenWidth > 800 && screenWidth <= 1000){
-            salvarCommitsFiltrados(4, 2)
-        }
-
-        if(screenWidth > 1000 && screenWidth <= 1300){
-            salvarCommitsFiltrados(6, 3)
-        }
-
-        if(screenWidth > 1300){
-            salvarCommitsFiltrados(8, 4)
-        }
-    }
-
-    const salvarCommitsFiltrados = (reps, whiteItems)=>{
-        let list = []   
-    
-        for (let i = 0; i < reps; i++){
-            if(commits[i] != undefined){
-                let c = commits[i]
-                
-                list.push({
-                    'title': c.mensagem,
-                    'userImgUrl': c.url,
-                    'userName': c.author,
-                    'date': c.date,
-                    'key': c.sha
-                })
-            }
-        }
-
-        for(let i = 0; i < whiteItems; i++){
-            list.push({element: null})
-        }
-    
-        setFilteredCommits(list)
-    }
-
-    useEffect(()=>{
-        window.onresize = resize
-
-        filtrarCommits()
-    }, [])
-
-    useEffect(()=>{
-        resize()
-
-        loadCommits()
-        
-
-    }, [])
+export default function Home({commitsList, test}){
 
     return(<div className={styles.container}>
         <section className={styles.session_1}>
             <h1>Projeto <TitleUnderlineLight>Image Flow</TitleUnderlineLight></h1>
             <h3> Salve suas memórias e acesse quando quiser</h3>
             <div className={styles.cardsBlock}>
-                <Card src={"/home/image-card-1.svg"} key={1}>
-                Salve seus arquivos de imagem e vídeo
+                <Card src="/home/image-card-1.svg" key={1}>
+                    Salve seus arquivos de imagem e vídeo
                 </Card>
-                <Card src={"/home/image-card-2.svg"} key={2}>
-                Crie coleções para cada momento
+                <Card src="/home/image-card-2.svg" key={1}>
+                    Crie coleções para cada momento
                 </Card>
-                <Card src={"/home/image-card-3.svg"} key={3}>
-                Acesse a qualquer momento
+                <Card src="/home/image-card-3.svg" key={1}>
+                    Acesse a qualquer momento
                 </Card>
-                <Card src={"/home/image-card-4.svg"} key={4}>
-                Compartilhe seus arquivos
+                <Card src="/home/image-card-4.svg" key={1}>
+                    Compartilhe seus arquivos
                 </Card>
+                
             </div>
             <div className={styles.session1_bottom}>
                 <p>por Rafael Laube</p>
@@ -138,13 +57,13 @@ export default function Home(){
         </session>
         <session className={styles.session_3}>
             <h1>Commits</h1>
-            <div className={styles.commits}>
-                {filteredCommits.map((item, index)=>{
+            <div className={styles.commitsBox}>
+                {commitsList.map((item, index)=>{
                     return <CommitItem 
-                    title={item != null ? item.title : ""}
-                    userImgUrl={item != null ? item.userImgUrl : ""}
-                    userName={item != null ? item.userName : ""}
-                    date={item != null ? item.date : ""}
+                    title={item.mensagem}
+                    userImgUrl={item.userImgUrl}
+                    author={item.author}
+                    date={new Date(item.dateStamp)}
                     key={index}
                     />
                 })}
@@ -163,51 +82,23 @@ export default function Home(){
     </div>)
 }
 
-function TitleUnderlineLight({children}){
-    return <span className={styles.titleSpan}>{children}</span>
-}
-
-function Card({src, children}){
-return <div className={styles.card}>
-    <img src={src}></img>
-    <p>{children}</p>
-</div>
-}
-
-function Button({type, children, src}){
-    return (<a href={src || ""} className={styles[type]}>
-        {children}
-    </a>)
-}
-
-function CommitItem({title, userImgUrl, userName, date}){
-    var titleSliced
-    var titleSlicedDescription
-    let [day, month, year] = [null, null, null]
+export async function getServerSideProps(){
+    const response = await fetch('https://api.github.com/repos/laube-developer/image-flow/commits')
+    const serverDada = await response.json()
+    let commitsList = []
     
-    if(title){
-        titleSliced = title.slice(0, 19).split(" ")
-        titleSliced.pop()
-        titleSliced = titleSliced.join(" ")
-        titleSlicedDescription = title.replace(titleSliced, "")
-    }
+    serverDada.map((item, index)=>{
+        commitsList.unshift({
+            "sha": item.sha,
+            "dateStamp": item.commit.author.date,
+            "author": item.author.login,
+            "userImgUrl": item.author.avatar_url,
+            "mensagem": item.commit.message
+        })
+    })
 
-    let months = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
+    return {props: {
+        commitsList: commitsList
+    }}
 
-    if(date){
-        [day, month, year] = [date.getDate(), months[date.getMonth()], date.getFullYear()]
-    }
-
-    return (<li className={styles.commitsItem}>
-        {title ? <h1>{titleSliced}</h1> : (<div className={styles.titleNone}></div>)}
-
-        {title ? <h4>{titleSlicedDescription}</h4> : (<div className={styles.titleNoneDesc}></div>)}
-        
-        <div>
-            <img src={userImgUrl}/>
-            <div className={styles.icon}>←</div>
-            {userName? <p>por {userName}</p> : <></>}
-        </div>
-        {date ? (<h3><i>{`${day} de ${month} de ${year}`}</i></h3>)  : <></>}
-    </li>)
 }

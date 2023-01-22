@@ -1,0 +1,35 @@
+
+.commitsItem{
+    min-height: 40vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    border: 3px solid #A5A5A5;
+    border-radius: .9rem;
+    padding: 2rem;
+}
+
+.commitsItem > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commitsItem h4{
+    color: #979797;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.commitsItem img{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    background: #C3C3C3;
+}
+
+.commitsItem h3{
+    justify-self: flex-end;
+} 

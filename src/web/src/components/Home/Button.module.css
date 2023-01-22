@@ -1,0 +1,48 @@
+
+.btn_primary, .btn_secondary, .btn_terciary{
+    font-size: 1.3rem;
+    padding: 9px 1.5rem;
+    border-radius: .9rem;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    color: #232323;
+    z-index: 40;
+}
+
+.btn_primary{
+    background: none;
+    border: 2px solid black;
+}
+
+.btn_primary:hover{
+    background: rgb(222, 222, 222);
+}
+
+.btn_secondary{
+    background: #91FA80;
+    position: relative;
+
+}
+
+.btn_secondary:hover{
+    box-shadow: 0 0 20px 10px #90fa8082;
+}
+
+.btn_terciary{
+    align-self: flex-end;
+    width: 15rem;
+    display: inline;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: .9rem;
+    border: 3px solid #A118D7;
+    background: none;
+    color: #A118D7;
+}
+
+.btn_terciary:hover{
+    background: #A118D7;
+    color: white;
+}

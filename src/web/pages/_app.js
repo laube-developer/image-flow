@@ -1,6 +1,6 @@
 import '../styles/globals.css'
-import Header from '../src/components/header'
-import AuthUserContext from './../src/utils/context/userContext';
+import Header from "../src/components/App/Global/header"
+import AuthUserContext from '../src/utils/context/userContext';
 import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {

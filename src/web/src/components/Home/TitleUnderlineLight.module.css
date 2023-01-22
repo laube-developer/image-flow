@@ -1,0 +1,17 @@
+
+
+.titleSpan{
+    font-size: inherit;
+    margin-left: 1rem;
+}
+
+.titleSpan:after{
+    content: "";
+    display: flex;
+    position: relative;
+    width: inherit;
+    height: .3rem;
+    top: -.5rem;
+    z-index: -2;
+    background: #A118D7;
+}

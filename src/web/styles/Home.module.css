@@ -3,69 +3,14 @@
     src: url("./fonts/Roboto/Roboto-Regular.ttf");
 }
 
-@keyframes cardHover{
-    from {top: 0;}
-    to {top: -10px; box-shadow: 0px 7px 30px #a118d7aa;}
-}
-
-@keyframes cardHoverReverse{
-    from{top: -10px; box-shadow: 0px 7px 30px #a118d7aa;
-    }
-    to{top: 0;box-shadow: 0px 7px 30px #a118d700;}
-}
-
-
-
-.card{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-direction: column;
-    height: 21rem;
-    border: 2px solid black;
-    width: calc(100%/4);
-    border-radius: 29px;
-    padding: 0 1.5rem;
-
-    position: relative;
-    animation-name: cardHoverReverse;
-    animation-duration: .5s;
-}
-
-.card:hover{
-    top: -10px;
-    box-shadow: 0px 7px 30px #a118d7aa;
-    animation-name: cardHover;
-    animation-duration: .5s;
-}
-
 .container{
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-top: 9rem;
 }
-
-.titleSpan{
-    font-size: inherit;
-    margin-left: 1rem;
-}
-
-.titleSpan:after{
-    content: "";
-    display: flex;
-    position: relative;
-    width: inherit;
-    height: .3rem;
-    top: -.5rem;
-    z-index: -2;
-    background: #A118D7;
-}
-
 .session_1{
     padding: 0 10rem;
-    display: flex;
     flex-direction: column;
     height: calc(100vh - 7rem);
 }
@@ -93,17 +38,6 @@
     margin-top: 1.5rem;
 }
 
-
-.card p{
-    font-size: 20pt;
-    text-align: center;
-    color: black;
-}
-
-.card img{
-    width: 5rem;
-}
-
 .session_1, .session_2, .session_3{
     display: flex;
     /* overflow: hidden; */
@@ -125,55 +59,6 @@
 .session1_bottom div{
     display: flex;
     gap: 1rem;
-}
-
-
-.btn_primary, .btn_secondary, .btn_terciary{
-    font-size: 1.3rem;
-    padding: 9px 1.5rem;
-    border-radius: .9rem;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: none;
-    color: #232323;
-}
-
-.btn_primary{
-    background: none;
-    border: 2px solid black;
-}
-
-.btn_primary:hover{
-    background: rgb(222, 222, 222);
-}
-
-.btn_secondary{
-    background: #91FA80;
-    border: 2px solid #91FA80;
-    position: relative;
-
-}
-
-.btn_secondary:hover{
-    background-image: linear-gradient(to bottom right, #0ce3aa, #91FA80);
-}
-
-.btn_terciary{
-    align-self: flex-end;
-    width: 15rem;
-    display: inline;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    border-radius: .9rem;
-    border: 3px solid #A118D7;
-    background: none;
-    color: #A118D7;
-}
-
-.btn_terciary:hover{
-    background: #A118D7;
-    color: white;
 }
 
 .session_2{
@@ -271,11 +156,12 @@
 
 .session_3{
     background: white;
-    padding: 3rem 10rem;
+    padding: 3rem 10rem 0 10rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
     position: relative;
+    max-height: 300vh;
 }
 
 .session_3::after{
@@ -293,20 +179,21 @@
     font-weight: 500;
 }
 
-.commits{
+.commitsBox{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
+    overflow-y: scroll;
 }
 
-@media (max-width: 1300px){
-    .commits{
+@media (max-width: 1400px){
+    .commitsBox{
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-@media (max-width: 1000px){
-    .commits{
+@media (max-width: 1300px){
+    .commitsBox{
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
@@ -316,53 +203,11 @@
     }
 }
 @media (max-width: 800px){
-    .commits{
+    .commitsBox{
         grid-template-columns: 1fr;
         gap: 1rem;
+        overflow-y: hidden;
     }
-}
-
-.commitsItem{
-    height: 30vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    border: 3px solid #A5A5A5;
-    border-radius: .9rem;
-    padding: 2rem;
-}
-
-.commitsItem > div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.commitsItem h4{
-    color: #979797;
-    font-weight: 500;
-    font-size: 1.2rem;
-}
-
-.commitsItem img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #C3C3C3;
-}
-
-.commitsItem h3{
-    justify-self: flex-end;
-} 
-
-.titleNone, .titleNoneDesc{
-    width: 100%;
-    background-image: linear-gradient(to bottom right, #C3C3C3, #c3c3c37c);
-}
-
-.titleNone{
-    height: 50%;
 }
 
 .footer{

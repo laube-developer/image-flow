@@ -15,15 +15,15 @@
 
 @font-face{
     font-family: Buenard;
-    src: url('./fonts/Buenard/Buenard-Regular.ttf');
+    src: url('../../../../styles/fonts/Buenard/Buenard-Regular.ttf');
 }
 
 @font-face{
     font-family: Roboto;
-    src: url('./fonts/Roboto/Roboto-Regular.ttf');
+    src: url('../../../../styles/fonts/Roboto/Roboto-Regular.ttf');
 }
 
-.header_7, .header_5{
+.header{
     background: #313131;
     width: 100vw;
     display: flex;
@@ -36,18 +36,10 @@
     position: fixed;
     z-index: 50;
     top: 0;
-}
-
-.header_7{
     height: 7rem;
 }
 
-.header_5{
-    height: 5rem;
-}
-
-.header_7 ul,
-.header_5 ul{
+.header ul{
     list-style: none;
     display: flex;
     align-items: center;
@@ -57,48 +49,42 @@
     font-family: Roboto;
 }
 
-.header_7 li, 
-.header_5 li{
+.header li{
     padding: 0 1.5rem;
     cursor: pointer;
 }
 
-.header_7 li a, 
-.header_5 li a{
+.header li a{
     color: white;
     text-decoration: none;
 }
 
-.header_7 ul li:after,
-.header_5 ul li:after{
+.header ul li:after{
     content: "";
+    width: 0;
     left: 0;
     display: flex;
     position: relative;
-    width: 0;
     height: .3rem;
-    background-color: #4B218E;
+    background-color: #A118D7;
     top: 6px;
     animation-name: reverseMenuHover;
     animation-duration: .3s;
     border-radius: 50vh 50vh;
 }
 
-.header_7 ul li.current:after,
-.header_5 ul li.current:after{
+.header ul li.current:after{
     width: 100%;
     animation-name: menuHoverCurrent;
 }
 
-.header_7 ul li:hover:after,
-.header_5 ul li:hover:after{
+.header ul li:hover:after{
     width: 100%;
     animation-name: menuHover;
     animation-duration: .3s;
 }
 
-.header_7::after,
-.header_5::after{
+.header::after{
     content: "";
     display: flex;
     position: absolute;
