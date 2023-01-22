@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useContext, useEffect } from "react"
-import Restrict from "../../src/components/restrict"
+import Restrict from "../../src/components/App/Global/restrict"
 import AuthUserContext from "../../src/utils/context/userContext"
 
 export default function Me(){
