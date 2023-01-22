@@ -18,7 +18,7 @@ export default function CommitItem({title, userImgUrl, author, date}){
         <h4>{info}</h4>
         
         <div>
-            <Image src={userImgUrl}/>
+            <Image src={userImgUrl} alt={userImgUrl}/>
             <div className={styles.icon}>←</div>
             <p>por {author}</p>
         </div>

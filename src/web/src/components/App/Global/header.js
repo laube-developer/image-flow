@@ -17,10 +17,10 @@ export default function Header(){
     function HeaderComponent({child}){
         return <header className={styles.header}>
             <ul>
-                <li><Link href="/">Início</Link></li>
-                <li className={styles.current}><Link href="/">Sobre</Link></li>
-                <li><Link href="/cadastrar">Cadastrar</Link></li>
-                <li><Link href="/login">Entrar</Link></li>
+                <li><Link href="/" passHref>Início</Link></li>
+                <li className={styles.current} passHref><Link href="/">Sobre</Link></li>
+                <li><Link href="/cadastrar" passHref>Cadastrar</Link></li>
+                <li><Link href="/login" passHref>Entrar</Link></li>
             </ul>
         </header>
     }

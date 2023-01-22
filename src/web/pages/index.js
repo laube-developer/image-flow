@@ -72,11 +72,11 @@ export default function Home({commitsList, test}){
         </session>
         <footer className={styles.footer}>
             <div>
-                <img src="/home/github.svg"/>
+                <Image src="/home/github.svg" alt="Image Flow Github Project"/>
                 <Link href="https://github.com/laube-developer/image-flow">Image Flow</Link>
             </div>
             <div>
-                <img src="/home/linkedin.svg"/>
+                <Image src="/home/linkedin.svg" alt="Rafael Laube no Linkedin"/>
                 <Link href="https://www.linkedin.com/in/rafaellaube/">Rafael Laube</Link>
             </div>
         </footer>

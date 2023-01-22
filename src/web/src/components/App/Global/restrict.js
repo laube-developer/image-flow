@@ -35,21 +35,21 @@ export default function Restrict({children}){
             const formData = new FormData()
             formData.append("json", JSON.stringify(user))
 
-            await fetch("/api/login", {
+            const response = await fetch("/api/login", {
                 method: "POST",
                 body: JSON.stringify(user)
             })
-                .then(res=>res.json())
-                .then(dados=>{
-                    console.log(dados)
-                    setAuth(dados)
-                    setLoading(false)
-                })
-                .catch((err)=>{
-                    console.log(err)
-                    alert("Usuário ou senha incorretos")
-                    rotas.push("/login")
-                })
+            .catch((err)=>{
+                console.log(err)
+                alert("Usuário ou senha incorretos")
+                rotas.push("/login")
+            })
+            
+            const dados = await response.json()
+            setAuth(dados)
+            setLoading(false)
+
+                
         }
     }, [rotas, authUser, setAuth, username, senha])
 
