@@ -1,5 +1,5 @@
 # 📷 Projeto **Image-Flow**
-![Página Principal do site](https://raw.githubusercontent.com/laube-developer/image-flow/main/example_images/3_Folders.jpg)
+[![Página Principal do site](https://raw.githubusercontent.com/laube-developer/image-flow/cadastro-e-envio-de-arquivos/example_images/1_Home.png)](https://image-flow.vercel.app)
 
 ## 🤔 O que é o projeto?
 O **image-flow** é uma plataforma capaz de guardar os seus melhores momentos. Pussui uma interface simples para que sua experiência remonte suas lembranças nitidamente.
