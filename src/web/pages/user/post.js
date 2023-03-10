@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Restrict from "../../src/components/App/Global/restrict"
+import Restrict from "../../src/components/Global/Restrict";
 import axios from 'axios'
 
 export default function Post(){

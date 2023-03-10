@@ -1,3 +1,11 @@
+:root{
+  --dark-gray: #313131;
+  --primary-purple: #A118D7;
+  --primary-green: ##91FA80;
+
+  --text-h1: .8rem;
+}
+
 @font-face {
   font-family: Buenard;
   src: url('https://fonts.cdnfonts.com/css/buenard');

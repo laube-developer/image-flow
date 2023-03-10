@@ -1,7 +1,7 @@
 const styles = {
     body: {
         width: "100%",
-        height: "100vh",
+        height: "calc(100vh - 6rem)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -38,7 +38,7 @@ export default function Loading(){
             render: 'svg',
             loop: true,
             autoplay: true,
-            animationData: require('./animation/loading_animation.json')
+            animationData: require('../../../animation/loading_animation.json')
         })
     }, [])
 

@@ -1,17 +1,18 @@
 import '../styles/globals.css'
-import Header from "../src/components/App/Global/header"
-import AuthUserContext from '../src/utils/context/userContext';
+import Header from '../src/components/Global/Header';
 import { useState } from 'react';
+
+import LayoutBox from "../src/components/App/LayoutBox"
 
 function MyApp({ Component, pageProps }) {
   const [authUser, setAuth] = useState()
   const [username, setUsername] = useState("")
   const [senha, setSenha] = useState("")
 
-  return <AuthUserContext.Provider value={[authUser, setAuth, username, setUsername, senha, setSenha]}>
+  return <LayoutBox>
     <Header />
     <Component {...pageProps} />
-  </AuthUserContext.Provider>
+  </LayoutBox>
 }
 
 export default MyApp
